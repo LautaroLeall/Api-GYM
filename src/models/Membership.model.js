@@ -31,4 +31,7 @@ const membershipSchema = new mongoose.Schema({
   timestamps: true
 });
 
+// Índice compuesto para buscar membresías activas por usuario y fechas
+membershipSchema.index({ user: 1, isActive: 1, startDate: 1, endDate: 1 });
+
 module.exports = mongoose.model('Membership', membershipSchema);

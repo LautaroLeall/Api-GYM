@@ -33,4 +33,7 @@ const paymentSchema = new mongoose.Schema({
   timestamps: true
 });
 
+// Índice para optimizar consultas por usuario, membresía y estado
+paymentSchema.index({ user: 1, membership: 1, status: 1 });
+
 module.exports = mongoose.model('Payment', paymentSchema);
