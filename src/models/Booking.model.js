@@ -24,4 +24,8 @@ const bookingSchema = new mongoose.Schema({
   timestamps: true
 });
 
+// Índices para optimizar búsquedas por clase y fecha
+bookingSchema.index({ class: 1, date: 1, status: 1 });
+bookingSchema.index({ user: 1, date: 1 });
+
 module.exports = mongoose.model('Booking', bookingSchema);
